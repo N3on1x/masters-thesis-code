@@ -120,7 +120,7 @@ Metadata:
 
 ---
 
-# Run PostgreSQL with Docker (optional)
+## Run PostgreSQL with Docker (optional)
 In order to import OSM data to PostgreSQL, you need to have PostgreSQL installed.
 You can install it locally, or you can run it in a Docker container.
 The latter is recommended, as it is easier to manage and remove when you are done.
@@ -142,7 +142,7 @@ PostgreSQL will be available on `localhost:5432`, and pgAdmin on `localhost:5433
 
 > [pqAdmin](https://www.pgadmin.org) is a web-based GUI for PostgreSQL.
 
-## Preset parameters for PostgreSQL
+### Preset parameters for PostgreSQL
 These are some preset parameters in the Docker compose file.
 
 | Property | Value |
@@ -151,7 +151,7 @@ These are some preset parameters in the Docker compose file.
 | password | `postgres` |
 | default database | `osm`  |
 
-## Preset parameters for pgAdmin
+### Preset parameters for pgAdmin
 These are some preset parameters in the Docker compose file.
 
 | Property | Value |
