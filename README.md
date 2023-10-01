@@ -1,6 +1,15 @@
 # masters-thesis-code
 The code developed during my masters-thesis
 
+## Contents
+
+- [Download OSM data](#download-from-geofabrik)
+  - [Download extract](#download-extract)
+  - [Download updates](#download-updates-oms-change-files)
+- [Inspect OSM files](#inspect-files-with-osmium-tool)
+- [Run PostgreSQL with Docker](#run-postgresql-with-docker-optional)
+  - [Preset parameters for PostgreSQL](#preset-parameters-for-postgresql)
+  - [Preset parameters for pgAdmin](#preset-parameters-for-pgadmin)
 
 
 ---
@@ -21,7 +30,10 @@ A snapshot map extract for a region can be downloaded like this:
 curl -fLO https://download.geofabrik.de/europe/norway-latest.osm.pbf
 ```
 
-The preceding command will download the latest snapshot map extract over Norway from Geofabrik. You might want to change the URL to download your desired dataset depending on your needs. Older files are also available; consult the index mentioned above.
+The preceding command will download the latest snapshot map extract over Norway from Geofabrik.
+You might want to change the URL to download your desired dataset depending on your needs.
+Older files are also available; consult the index mentioned above.
+
 
 ### Download updates (OMS Change files)
 Geofabrik also publishes change files in the OSM Change file format `.osc`. These can be downloaded in bulk like this:  
@@ -30,7 +42,9 @@ Geofabrik also publishes change files in the OSM Change file format `.osc`. Thes
 curl -fLO --no-progress-meter "https:/download.geofabrik.de/europe/norway-updates/000/003/[705-834].osc.gz"
 ```
 
-⚠️ **Consult the website to find out which change files are available.** The range `[705-834]` is just an example of what was available when writing this.
+> [!NOTE]
+> **Consult the website to find out which change files are available.**
+> The range `[705-834]` is just an example of what was available when writing this.
 
 ---
 
@@ -94,4 +108,52 @@ Metadata:
 ```
 
 </details>
+
+> [!NOTE]
+> Smaller extracts can be obtained by using the `osmium extract` command with a bounding box:
+> ```sh
+> osmium extract --bbox=LONG1,LAT1,LONG2,LAT2 OSM-FILE`
+> ```
+> This command works for both `.osm` and `.osc` files.
+
+
+
+---
+
+# Run PostgreSQL with Docker (optional)
+In order to import OSM data to PostgreSQL, you need to have PostgreSQL installed.
+You can install it locally, or you can run it in a Docker container.
+The latter is recommended, as it is easier to manage and remove when you are done.
+
+> Docker can be installed from the official website: https://docker.com
+
+To run the [docker compose file](docker/compose.yaml) included in this repository you can run:  
+```sh
+docker compose -f docker/compose.yaml up -d
+```
+This will run the containers in the background. To stop the containers, run:
+```sh
+docker compose -f docker/compose.yaml down
+```
+
+This will create two containers: one for PostgreSQL and one for pgAdmin.
+
+> [pqAdmin](https://www.pgadmin.org) is a web-based GUI for PostgreSQL.
+
+## Preset parameters for PostgreSQL
+These are some preset parameters in the Docker compose file.
+
+| Property | Value |
+| --- | --- | 
+| username | `postgres` | 
+| password | `postgres` |
+| default database | `osm`  |
+
+## Preset parameters for pgAdmin
+These are some preset parameters in the Docker compose file.
+
+| Property | Value |
+| --- | --- | 
+| username | masters@example.com | 
+| password | password | 
 
