@@ -161,3 +161,29 @@ These are some preset parameters in the Docker compose file.
 
 > [!WARNING]
 > *Security Notice:* These settings are only appropriate for local development, and should not be used in productions.
+
+## Import data to PostgreSQL
+
+The OSM data can be imported to PostgreSQL using the `osm2pgsql` tool.
+> [osm2pgsql](https://osm2pgsql.org) is a tool for importing data from OpenStreetMap to PostgreSQL.
+
+A [configuration file](flex-config.lua) is included in this repository.
+This file is used to configure the import process.
+To import the data, run the following command:
+```sh
+osm2pgsql OSM-FILE -H localhost -P 5432 -U postgres -d osm --slim -O flex -S flex-config.lua --extra-attributes -W
+```
+
+**Explanation:**
+`OSM-FILE` the path to the OSM file you want to import.  
+`-H localhost` the hostname of the PostgreSQL server.  
+`-P 5432` the port of the PostgreSQL server.  
+`-U postgres` the username of the PostgreSQL server.  
+`-d osm` the name of the database to import to.  
+`--slim` use the slim mode (see the [docs](https://osm2pgsql.org/doc/manual.html#import-and-update)).
+`-O flex` use the flex output mode.  
+`-S flex-config.lua` use the flex configuration file.  
+`-W` prompt for password.  
+`--extra-attributes` include extra attributes in the output (version and timestamp).
+```
+> For more information consult the [`osm2pgsql` docs](https://osm2pgsql.org/doc/manual.html).
