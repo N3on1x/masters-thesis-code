@@ -138,6 +138,8 @@ docker compose -f docker/compose.yaml down
 
 This will create two containers: one for PostgreSQL and one for pgAdmin.
 
+PostgreSQL will be available on `localhost:5432`, and pgAdmin on `localhost:5433`.
+
 > [pqAdmin](https://www.pgadmin.org) is a web-based GUI for PostgreSQL.
 
 ## Preset parameters for PostgreSQL
@@ -157,3 +159,5 @@ These are some preset parameters in the Docker compose file.
 | username | masters@example.com | 
 | password | password | 
 
+> [!WARNING]
+> *Security Notice:* These settings are only appropriate for local development, and should not be used in productions.
