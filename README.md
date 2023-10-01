@@ -16,8 +16,8 @@ The code developed during my masters-thesis
 ## Download from Geofabrik
 Data extracts from OpenStreetMap can be downloaded at https://download.geofabrik.de
 
-A machine-readable index can be downloaded at https://download.geofabrik.de/index-v1-nogeom.json  
-Example using `curl`: 
+A machine-readable index can be downloaded at https://download.geofabrik.de/index-v1-nogeom.json
+Example using `curl`:
 
 ```sh
 curl -fLO https://download.geofabrik.de/index-v1-nogeom.json
@@ -36,7 +36,7 @@ Older files are also available; consult the index mentioned above.
 
 
 ### Download updates (OMS Change files)
-Geofabrik also publishes change files in the OSM Change file format `.osc`. These can be downloaded in bulk like this:  
+Geofabrik also publishes change files in the OSM Change file format `.osc`. These can be downloaded in bulk like this:
 
 ```sh
 curl -fLO --no-progress-meter "https:/download.geofabrik.de/europe/norway-updates/000/003/[705-834].osc.gz"
@@ -58,7 +58,7 @@ osmium fileinfo --extended norway-latest.osm.pbf
 
 <details>
   <summary>Example output</summary>
-  
+
   ```txt
   File:
   Name: norway-latest.osm.pbf
@@ -127,7 +127,7 @@ The latter is recommended, as it is easier to manage and remove when you are don
 
 > Docker can be installed from the official website: https://docker.com
 
-To run the [docker compose file](docker/compose.yaml) included in this repository you can run:  
+To run the [docker compose file](docker/compose.yaml) included in this repository you can run:
 ```sh
 docker compose -f docker/compose.yaml up -d
 ```
@@ -146,8 +146,8 @@ PostgreSQL will be available on `localhost:5432`, and pgAdmin on `localhost:5433
 These are some preset parameters in the Docker compose file.
 
 | Property | Value |
-| --- | --- | 
-| username | `postgres` | 
+| --- | --- |
+| username | `postgres` |
 | password | `postgres` |
 | default database | `osm`  |
 
@@ -155,9 +155,9 @@ These are some preset parameters in the Docker compose file.
 These are some preset parameters in the Docker compose file.
 
 | Property | Value |
-| --- | --- | 
-| username | masters@example.com | 
-| password | password | 
+| --- | --- |
+| username | masters@example.com |
+| password | password |
 
 > [!WARNING]
 > *Security Notice:* These settings are only appropriate for local development, and should not be used in productions.
