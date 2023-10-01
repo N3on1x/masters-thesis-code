@@ -10,6 +10,7 @@ The code developed during my masters-thesis
 - [Run PostgreSQL with Docker](#run-postgresql-with-docker-optional)
   - [Preset parameters for PostgreSQL](#preset-parameters-for-postgresql)
   - [Preset parameters for pgAdmin](#preset-parameters-for-pgadmin)
+- [Import data to PostgreSQL](#import-data-to-postgresql)
 
 
 ---
@@ -180,10 +181,11 @@ osm2pgsql OSM-FILE -H localhost -P 5432 -U postgres -d osm --slim -O flex -S fle
 `-P 5432` the port of the PostgreSQL server.  
 `-U postgres` the username of the PostgreSQL server.  
 `-d osm` the name of the database to import to.  
-`--slim` use the slim mode (see the [docs](https://osm2pgsql.org/doc/manual.html#import-and-update)).
+`--slim` use the slim mode (see the [docs](https://osm2pgsql.org/doc/manual.html#import-and-update)).  
 `-O flex` use the flex output mode.  
 `-S flex-config.lua` use the flex configuration file.  
 `-W` prompt for password.  
 `--extra-attributes` include extra attributes in the output (version and timestamp).
-```
+
+
 > For more information consult the [`osm2pgsql` docs](https://osm2pgsql.org/doc/manual.html).
