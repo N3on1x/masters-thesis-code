@@ -160,7 +160,7 @@ These are some preset parameters in the Docker compose file.
 | password | password |
 
 > [!WARNING]
-> *Security Notice:* These settings are only appropriate for local development, and should not be used in productions.
+> **Security Notice:** These settings are only appropriate for local development, and should not be used in productions.
 
 ## Import data to PostgreSQL
 
@@ -174,7 +174,7 @@ To import the data, run the following command:
 osm2pgsql OSM-FILE -H localhost -P 5432 -U postgres -d osm --slim -O flex -S flex-config.lua --extra-attributes -W
 ```
 
-**Explanation:**
+**Explanation:**  
 `OSM-FILE` the path to the OSM file you want to import.  
 `-H localhost` the hostname of the PostgreSQL server.  
 `-P 5432` the port of the PostgreSQL server.  
